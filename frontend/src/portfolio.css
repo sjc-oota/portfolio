@@ -1,0 +1,31 @@
+.Portfolio {
+  text-align: center;
+}
+
+.Portfolio-header {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+  color: white;
+  background-color: #7bc74d; /* 若草色 */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Ccircle fill='%23a8d080' cx='40' cy='40' r='6'/%3E%3Ccircle fill='%23a8d080' cx='10' cy='10' r='4'/%3E%3Ccircle fill='%23a8d080' cx='70' cy='70' r='10'/%3E%3C/svg%3E");
+}
+
+.Portfolio-header a {
+  color: white;
+  text-decoration: none;
+}
+
+.Portfolio-header a:hover {
+  color: #282c34;
+}
+
+.Portfolio-section {
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #282c34;
+}
+
+.Portfolio-section h3 {
+  color: #282c34;
+}
