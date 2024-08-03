@@ -27,9 +27,12 @@ Rails-Reactを使用してのポートフォリオとするため、ユーザー
   |論理名      |物理名       |型     |Null|備考|
   |-----------|-------------|-------|-----|---|
   |ID         |id           |integer|false||
-  |開始年月日  |started_date |date   |false||
-  |終了年月日  |started_date |date   |true ||
-  |内容        |started_date |string |false||
+  |プロジェクト名|project_name|string|false||
+  |役割        |role         |string|false||
+  |開始年月日  |start_date   |date   |false||
+  |終了年月日  |end_date     |date   |true ||
+  |使用技術    |technologies |string|false||
+  |業務内容    |content      |string|false||
 
 
 - スキル（ `skills` ）
@@ -46,6 +49,7 @@ Rails-Reactを使用してのポートフォリオとするため、ユーザー
   |論理名         |物理名       |型     |Null|備考|
   |--------------|-------------|-------|-----|---|
   |ID            |id           |integer|false||
-  |プロジェクト名 |name   |date   |false||
-  |内容          |detail |string |false||
-
+  |成果物名      |name         |string |false||
+  |説明          |description  |string |false||
+  |リンク        |link         |string |true ||
+  |スクリーンショット|screenshot  |string |true ||
