@@ -1,7 +1,15 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './portfolio.css'; // スタイルシートをインポートします。まだ作成していない場合は作成してください。
 
 function Portfolio() {
+  const [name, setName] = useState('');
+
+  useEffect(() => {
+    fetch('http://localhost:3000/name/show') // RailsサーバーのURLに合わせてください
+      .then(response => response.json())
+      .then(data => setName(data.name))
+      .catch(error => console.error('Error fetching name:', error));
+  }, []);
   return (
     <div className="Portfolio">
       <header className="Portfolio-header">
@@ -14,7 +22,7 @@ function Portfolio() {
       </header>
 
       <section id="name" className="Portfolio-section">
-        <h3>[名前]</h3>
+        <h2>{name}</h2>
       </section>
 
       <section id="experience" className="Portfolio-section">
