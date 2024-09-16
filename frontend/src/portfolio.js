@@ -5,11 +5,19 @@ function Portfolio() {
   const [name, setName] = useState('');
 
   useEffect(() => {
-    fetch('http://localhost:3000/name/show') // RailsサーバーのURLに合わせてください
-      .then(response => response.json())
+    fetch('http://localhost:3000/name/show', {
+      credentials: 'include' // 必要に応じてクッキーを送信する場合
+    })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+      })
       .then(data => setName(data.name))
       .catch(error => console.error('Error fetching name:', error));
   }, []);
+
   return (
     <div className="Portfolio">
       <header className="Portfolio-header">
