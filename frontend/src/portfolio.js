@@ -3,8 +3,10 @@ import './portfolio.css'; // スタイルシートをインポートします。
 
 function Portfolio() {
   const [name, setName] = useState('');
+  const [experience, setExperience] = useState([]);
 
   useEffect(() => {
+    // 名前を取得
     fetch('http://localhost:3000/name/show', {
       credentials: 'include' // 必要に応じてクッキーを送信する場合
     })
@@ -16,6 +18,19 @@ function Portfolio() {
       })
       .then(data => setName(data.name))
       .catch(error => console.error('Error fetching name:', error));
+
+    // 業務経歴リストを取得
+    fetch('http://localhost:3000/user_history/list', {
+      credentials: 'include' // 必要に応じてクッキーを送信する場合
+    })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then(data => setExperience(data.user_histories))
+      .catch(error => console.error('Error fetching experience:', error));
   }, []);
 
   return (
@@ -35,7 +50,13 @@ function Portfolio() {
 
       <section id="experience" className="Portfolio-section">
         <h3>業務経歴</h3>
-        <p>[業務経歴リスト]</p>
+        <ul>
+          {experience.map((exp, index) => (
+            <li key={index}>
+              <strong>{exp.project_name}</strong>: ({new Date(exp.start_date).toLocaleDateString()} ～ {new Date(exp.end_date).toLocaleDateString()}：{exp.role})
+            </li>
+          ))}
+        </ul>
       </section>
 
       <section id="skills" className="Portfolio-section">
