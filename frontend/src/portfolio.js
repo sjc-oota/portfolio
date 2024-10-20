@@ -5,6 +5,7 @@ function Portfolio() {
   const [name, setName] = useState('');
   const [experience, setExperience] = useState([]);
   const [skills, setSkill] = useState([]);
+  const [projects, setWorks] = useState([]);
 
   useEffect(() => {
     // 名前を取得
@@ -45,7 +46,20 @@ function Portfolio() {
         })
         .then(data => setSkill(data.skills))
         .catch(error => console.error('Error fetching experience:', error));
-  }, []);
+
+      // 成果物リストを取得
+      fetch('http://localhost:3000/project/list', {
+        credentials: 'include' // 必要に応じてクッキーを送信する場合
+      })
+        .then(response => {
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+          return response.json();
+        })
+        .then(data => setWorks(data.projects))
+        .catch(error => console.error('Error fetching experience:', error));
+      }, []);
 
   return (
     <div className="Portfolio">
@@ -55,7 +69,7 @@ function Portfolio() {
           <a href='#name'>名前</a>
           <a href="#experience">業務経歴</a>
           <a href="#skills">スキル</a>
-          <a href="#works">成果物</a>
+          <a href="#projects">成果物</a>
         </div>
  */}
       </header>
@@ -80,18 +94,22 @@ function Portfolio() {
         <ul>
           {skills.map((skill, index) => (
             <li key={index}>
-              <strong>{skill.name}</strong>
+              <strong>{skill.name}（{skill.skill_type}）</strong>
             </li>
           ))}
         </ul>
       </section>
-{/* TODO： 現時点では業務経歴と類似しかなさそうなので、成果物は一旦削除
-      <section id="works" className="Portfolio-section">
+      <section id="projects" className="Portfolio-section">
         <h3>成果物</h3>
-        <p>[成果物リスト]</p>
+        <ul>
+          {projects.map((project, index) => (
+            <li key={index}>
+              <strong>{project.project_name}</strong><br/>
+              詳細： {project.content}
+            </li>
+          ))}
+        </ul>
       </section>
- */}
-
     </div>
   );
 }
