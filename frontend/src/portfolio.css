@@ -1,31 +1,71 @@
+/* portfolio.css */
+
 .Portfolio {
   text-align: center;
+  background-color: #f0f8ff; /* パステル水色 */
+  color: #333333; /* ダークグレーのテキスト */
 }
 
 .Portfolio-header {
   display: flex;
   justify-content: space-around;
-  padding: 20px;
-  color: white;
-  background-color: #7bc74d; /* 若草色 */
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Ccircle fill='%23a8d080' cx='40' cy='40' r='6'/%3E%3Ccircle fill='%23a8d080' cx='10' cy='10' r='4'/%3E%3Ccircle fill='%23a8d080' cx='70' cy='70' r='10'/%3E%3C/svg%3E");
+  padding: 30px; /* サイズを1.5倍に */
+  color: #ffffff;
+  background-color: #87ceeb; /* スカイブルー */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%2387ceeb'/%3E%3Ccircle fill='%23ffffff' cx='30' cy='30' r='20'/%3E%3Ccircle fill='%23ffffff' cx='70' cy='70' r='30'/%3E%3C/svg%3E");
+  font-family: 'Comic Sans MS', 'Comic Sans', cursive; /* かわいいフォント */
+  font-size: 1.5em; /* フォントサイズを大きく */
 }
 
 .Portfolio-header a {
-  color: white;
+  color: #ffffff;
   text-decoration: none;
+  transition: color 0.3s ease;
 }
 
 .Portfolio-header a:hover {
-  color: #282c34;
+  color: #20b2aa; /* ライトシーグリーン */
 }
 
 .Portfolio-section {
   margin: 20px;
   padding: 20px;
-  border: 1px solid #282c34;
+  border: 1px solid #b0e0e6; /* パステルブルー */
+  background-color: #e0ffff; /* ライトシアン */
+  border-radius: 8px; /* 角を丸く */
 }
 
 .Portfolio-section h3 {
-  color: #282c34;
+  color: #20b2aa; /* ライトシーグリーン */
+}
+
+.menu a {
+  padding: 10px 20px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.menu a:hover {
+  background-color: #b0e0e6; /* パステルブルー */
+}
+
+/* portfolio.css */
+
+.Portfolio-section ul {
+  list-style-type: none; /* デフォルトのリストスタイルを削除 */
+  padding: 0;
+  width: 100%; /* 親要素の幅を100%に */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* 子要素を中央寄せ */
+}
+
+.Portfolio-section li {
+  background-color: #f8f9fa; /* 明るい背景色 */
+  margin: 10px 0;
+  padding: 10px;
+  width: 500px; /* 固定幅 */
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: left;
 }
